@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Nanum+Gothic&display=swap');*
+*{
+    margin: 0%;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration : none;
+    list-style : none;
+    
+}
+body{
+    background-color: rgb(16, 75, 75);
+    font-family: 'Nanum Gothic', sans-serif;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Z-indexes */
+
+nav{
+    z-index: 5;
+    box-shadow: 10px 10px 30px rgba(0,0,0,.6);
+}
+
+
+.nav-links
+{
+    z-index: 3;
+}
+
+nav .burger
+{
+    z-index: 2;
+}
+
+.container .head1 .headstyle
+{
+    z-index: -2;
+}
+
+  .blur
+{
+    z-index: -1;
+}
+
+
+/*  */
+
+/* Navigation Bar */
+
+nav{
+    background-color: rgba(244, 185, 83, .1);
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 15vh;
+    position: sticky;
+    top: 0;
+}
+
+.logo 
+{
+    height: 65px;
+    cursor: pointer;
+    font-size: 30px;
+    align-items: center;
+    color: rgba(4, 18, 19, 0.8);
+    padding: 8px;
+}
+
+.nav-links
+{
+    display:flex;
+    text-decoration: none;
+    justify-content:  space-around;
+    width:40%;  
+}
+
+.nav-links a{
+    color: rgb(5, 4, 4);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 1rem;
+    top: 0px;
+    position: relative;
+}
+
+.nav-links a::after{
+    content: " ";
+    width: 0%;
+    background-color: rgb(41, 12, 12);
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition-property: width;
+    transition-duration: .3s;    
+}
+
+.nav-links a:hover::after
+{
+    width: 50%;
+}
+
+.burger
+{
+    display:none;
+    cursor: pointer;
+    padding: 10px;
+    clear: both;
+}
+
+.burger div{
+    width :25px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    margin: 5px;
+    display: block;
+    position: relative;   
+}
+
+.burger .line1{
+    transition: all 0.2s ease-out;
+}
+
+.burger .line2{
+    transition: all 0.2s ease-out;
+}
+
+.burger .line3{
+    transition: background 0.2s ease-out;
+}
+
+#check
+{
+    display:none;
+}
+
+#check:checked ~ .checkbtn .burger .line1
+{
+    transform: rotate(-45deg);    
+    top: 0;
+}
+
+#check:checked ~ .checkbtn .burger .line2
+{
+    transform: rotate(45deg); 
+    top: -8px;   
+}
+
+#check:checked ~ .checkbtn .burger .line3
+{
+    background: transparent;
+}
+
+/*  */
+
+
+
+/* Container section */
+
+.container
+{
+    clear: both;
+    
+    
+}
+
+.container .head1{
+    text-align: center;
+    color:silver;
+    font-size: 20px;
+}
+
+
+.container .head1 .headstyle
+{
+    font-family: 'Ephesis', cursive;
+    font-size: 60px;
+    animation: headingName;
+    animation-duration: 2s;
+    /* animation-fill-mode: forwards; */
+    position: relative;
+    
+    color: tomato;
+    font-weight:bold;
+    animation-timing-function: ease-in;
+
+}
+#content
+{
+    position: relative;
+}
+
+
+#content .grid-container 
+{
+   display: grid;
+    /* justify-content: center; */
+    /* background-color: red; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit , minmax(250px , auto));
+    /* grid-auto-rows: minmax(200px ,auto); */
+    grid-column-gap: 10px;
+    margin: 0 5px;
+    
+
+}
+
+#content .grid-container div
+{
+    /* background-color: rgb(114, 130, 131); */
+    
+    align-items: center;
+    place-items: center;
+    text-align: center;
+    padding: 50% auto;
+    padding: 5px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,.4);
+  
+}
+
+#content .grid-container div:nth-child(even)
+{
+    /* background-color: rgb(136, 177, 96); */
+}
+
+   iframe
+{
+    width: 280px;
+    height: 200px;
+}
+
+.container a{
+    text-align: center;
+}
+
+.sidebar
+{
+    /* grid-row: 1/-1 ; */
+    
+}
+
+
+
+@keyframes headingName
+{
+    0%
+    {
+        top : -100px;
+    }
+
+    100%{
+        top : 20px;
+    }
+}
+
+@keyframes content
+{
+    0%
+    {
+        left: -300px;
+    }
+
+    100%
+    {
+        left: 10px;
+    }
+}
+@keyframes btn
+{
+    0%
+    {
+       opacity: 0;
+    }
+
+    100%
+    {
+        opacity: 1;
+    }
+}
+
+  .blur
+    {
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0;
+        background:rgba(0,0,0,.1);
+        backdrop-filter: blur(10px);
+        position: fixed;
+        
+        /* transition: all 0.5s; */
+        display: none;
+    }
+
+
+
+@media screen and (max-width : 1195px) 
+{
+    #content .grid-container 
+{
+   
+    grid-template-columns: repeat(auto-fit , minmax(300px , auto));
+    
+    
+
+}
+
+}
+
+
+
+@media screen and (max-width : 1010px) 
+{
+
+    iframe
+{
+    width: 280px;
+}
+
+
+
+        .nav-links
+    {
+        width: 50%;
+    }
+
+    .nav-links a{
+        letter-spacing: 3px;
+        word-spacing: 14px;
+        
+    }
+
+    nav
+    {
+        min-height: 15vh;
+    }
+
+    .nav-links a 
+    {
+        font-size: 1rem;
+    }
+
+   
+    
+}
+
+
+
+@media screen and (max-width : 620px) 
+{
+  
+    #content .grid-container 
+    {
+    
+        grid-template-columns: repeat(auto-fit , minmax(290px , auto));
+        
+    }
+
+        iframe
+    {
+        width: 300px;
+        height: 220px;
+    }
+
+        .check:checked ~ .blur
+        {
+            
+            display: block;
+        }
+        
+
+            .burger{
+                display: block;
+                float: right;
+            }    
+            
+        
+
+        .nav-links  {
+                position: fixed;
+                width: 100%;
+                top: 90px;
+                left: -100%;
+                text-align: center;
+                display: block;
+                width: 100%;
+                transition: all 0.5s;
+                
+            }
+
+        .nav-links li
+        {
+            padding-top: 50px;
+        height: 20vh;
+        
+        }
+
+        .nav-links li a
+        {
+            font-size: 25px;
+            padding-top: 0px;
+            
+        }
+
+            a.active,a:hover
+        {
+            color: rgb(170, 206, 206);
+        }
+
+            .nav-links a:hover::after
+        {
+            width: 0%;
+        }
+
+        ul
+        {
+            background-color:rgba(18, 53, 54, 0.8) ;
+            /* background-color: burlywood; */
+            height: 100vh;
+        }
+
+        #check:checked ~ .nav-links
+            {
+                left:0;
+
+            }
+
+        .nav-links li
+        {
+            border-bottom: 1px solid black;
+            align-items: center;
+            
+            
+        }
+        .container .head1
+        {
+            font-size: 15px;
+        }
+
+}
+
+
+
+
